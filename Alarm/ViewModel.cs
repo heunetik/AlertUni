@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ComponentModel;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Windows.Input;
 
 namespace Alarm
 {
@@ -35,7 +32,6 @@ namespace Alarm
         void addAlarm(object o)
         {
             Ticker a = new Ticker();
-            //minAlarm = a;
             a.Closed += new EventHandler(a_Closed);
             a.PropertyChanged += new PropertyChangedEventHandler(a_PropertyChanged);
             Alarms.Add(a);

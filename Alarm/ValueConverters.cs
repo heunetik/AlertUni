@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Data;
-using System.Windows.Input;
 
 namespace Alarm
 {
     class DoubleToTimeLeftConverter : IValueConverter
     {
-        // Afisam timpul ramas ca si String
+        // Display time left as a string
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             double d = (double)value;
@@ -45,7 +41,7 @@ namespace Alarm
         {
             double d = (double)value;
             TimeSpan time = TimeSpan.FromMilliseconds(d);
-            return "Timp Ramas - " + time.ToString("hh\\:mm\\:ss");
+            return "Time left - " + time.ToString("hh\\:mm\\:ss");
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

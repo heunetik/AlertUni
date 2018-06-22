@@ -31,7 +31,7 @@
     <Grid>
         <StackPanel>
             <Button Command="{Binding AddAlarmCommand}"
-                    Content="Adauga alarma"
+                    Content="Add Alarm"
                     IsTabStop="False" />
             <ItemsControl Name="listBox1"
                           HorizontalContentAlignment="Stretch"
@@ -99,13 +99,13 @@
                                                 DockPanel.Dock="Right">
                                         <CheckBox Name="cbxSound"
                                                   VerticalAlignment="Center"
-                                                  ToolTip="Alarma auditiva">
-                                            <TextBlock Text="Sunet" />
+                                                  ToolTip="Sound alarm">
+                                            <TextBlock Text="Sound" />
                                         </CheckBox>
                                         <CheckBox Name="cbxPopup"
                                                   VerticalAlignment="Center"
                                                   IsChecked="True"
-                                                  ToolTip="Cand se termina alarma, apare deasupra restul programelor">
+                                                  ToolTip="When the alarm expires, the app jumps on top">
                                             <TextBlock Text="Popup" />
                                         </CheckBox>
                                     </StackPanel>
@@ -113,12 +113,12 @@
                                             Panel.ZIndex="0"
                                             BorderBrush="Black"
                                             BorderThickness="1">
-                                        <Grid Background="White" ToolTip="Adaugati o descriere">
+                                        <Grid Background="White" ToolTip="Add a description">
                                             <TextBlock Margin="2,2"
                                                        VerticalAlignment="Center"
                                                        FontStyle="Italic"
                                                        Foreground="LightGray"
-                                                       Text="Descrierea alarmei"
+                                                       Text="Description"
                                                        Visibility="{Binding ElementName=txtUserEntry,
                                                                             Path=Text.IsEmpty,
                                                                             Converter={StaticResource boolToVis}}" />
@@ -146,7 +146,7 @@
                                             Minimum="0"
                                             TickFrequency="60000"
                                             TickPlacement="Both"
-                                            ToolTip="Setati timpul cu sliderul. Tineti Shift apasat pentru control fin."
+                                            ToolTip="Set the time with the slider. For granular control, press and hold Shift."
                                             Value="{Binding TimeLeft,
                                                             Mode=TwoWay,
                                                             NotifyOnTargetUpdated=False}" />
@@ -162,7 +162,7 @@
                             </StackPanel>
                         </Border>
                         <DataTemplate.Triggers>
-                            <!--  Trigger pentru sunet  -->
+                            <!--  Sound Trigger  -->
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
                                     <Condition Binding="{Binding ElementName=sld, Path=Tag}" Value="Started" />
@@ -173,7 +173,7 @@
                                     <SoundPlayerAction Source="Sounds/Alert.wav" />
                                 </MultiDataTrigger.EnterActions>
                             </MultiDataTrigger>
-                            <!--  Trigger pentru animatie  -->
+                            <!--  Animation Trigger  -->
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
                                     <Condition Binding="{Binding ElementName=sld, Path=Tag}" Value="Started" />

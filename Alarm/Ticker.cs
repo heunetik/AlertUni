@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Threading;
 using System.ComponentModel;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace Alarm
 {
@@ -27,7 +24,7 @@ namespace Alarm
                 OnPropertyChanged("TimeLeft");
             }
         }
-        DateTime dday;              // Timpul la care sa oprim timer-ul
+        DateTime dday;              // The time at which the timer stops
         readonly ICommand closeCommand;
         public ICommand CloseCommand { get { return closeCommand; } }
 
@@ -53,13 +50,13 @@ namespace Alarm
             double t = (dday - DateTime.Now).TotalMilliseconds;
             if (t <= 0)
             {
-                // Oprim timer-ul cand ajungem la "dday", si setam TimeLeft sa fie zero
+                // We stop the timer at "dday" and we set TimeLeft to 0
                 TimeLeft = 0;
                 timer.Stop();
             }
             else
             {
-                // Timer-ul a facut un tick, deci nu facem update la dday
+                // Timer ticked, so we don't update dday
                 timeLeft = t;
                 OnPropertyChanged("TimeLeft");
             }
